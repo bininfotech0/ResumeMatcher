@@ -1,62 +1,32 @@
 import Link from 'next/link';
 
-const GitHubStarBadge = () => {
-	const githubRepoUrl = 'https://github.com/srbhr/resume-matcher';
+const ContactBadge = () => {
+	const websiteUrl = 'https://edgetalent.ai';
 
 	return (
 		<Link
-			href={githubRepoUrl}
+			href={websiteUrl}
 			target="_blank"
 			rel="noopener noreferrer"
 			className="inline-block group"
 		>
-			<div className="p-[1px] rounded-xl bg-gradient-to-br from-sky-400 to-blue-600">
+			<div className="p-[1px] rounded-xl bg-gradient-to-br from-blue-400 to-indigo-600">
 				<span
-					className={`
-            inline-flex items-center gap-x-1.5
-            px-3 py-1.5
-            rounded-xl
-            text-md
-            bg-black text-white
-            group-hover:bg-gradient-to-r group-hover:from-sky-400 group-hover:to-blue-500
-            group-hover:text-black
-            transition-colors duration-300 ease-in-out
-          `}
+					className="inline-flex items-center gap-x-2 px-4 py-2 rounded-xl text-sm bg-black text-white group-hover:bg-gradient-to-r group-hover:from-blue-400 group-hover:to-indigo-500 group-hover:text-black transition-colors duration-300 ease-in-out"
 				>
 					<svg
-						className="w-3.5 h-3.5"
+						className="w-4 h-4"
 						xmlns="http://www.w3.org/2000/svg"
 						viewBox="0 0 24 24"
 						fill="currentColor"
-						aria-hidden="true"
 					>
-						<path
-							fillRule="evenodd"
-							d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.007 5.404.433c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354l-4.543 2.837c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.433 2.082-5.006z"
-							clipRule="evenodd"
-						/>
+						<path d="M21.721 12.752a9.711 9.711 0 00-.945-5.003 12.754 12.754 0 01-4.339 2.708 18.991 18.991 0 01-.214 4.772 17.165 17.165 0 005.498-2.477zM14.634 15.55a17.324 17.324 0 00.332-4.647c-.952.227-1.945.347-2.966.347-1.021 0-2.014-.12-2.966-.347a17.515 17.515 0 00.332 4.647 17.385 17.385 0 005.268 0zM9.772 17.119a18.963 18.963 0 004.456 0A17.182 17.182 0 0112 21.724a17.18 17.18 0 01-2.228-4.605zM7.777 15.23a18.87 18.87 0 01-.214-4.774 12.753 12.753 0 01-4.34-2.708 9.711 9.711 0 00-.944 5.004 17.165 17.165 0 005.498 2.477zM21.356 14.752a9.765 9.765 0 01-7.478 6.817 18.64 18.64 0 001.988-4.718 18.627 18.627 0 005.49-2.098zM2.644 14.752c1.682.971 3.53 1.688 5.49 2.099a18.64 18.64 0 001.988 4.718 9.765 9.765 0 01-7.478-6.816zM13.878 2.43a9.755 9.755 0 016.116 3.986 11.267 11.267 0 01-3.746 2.504 18.63 18.63 0 00-2.37-6.49zM12 2.276a17.152 17.152 0 012.805 7.121c-.897.23-1.837.353-2.805.353-.968 0-1.908-.122-2.805-.353A17.151 17.151 0 0112 2.276zM10.122 2.43a18.629 18.629 0 00-2.37 6.490 11.266 11.266 0 01-3.746-2.504 9.754 9.754 0 016.116-3.985z" />
 					</svg>
-
-					<span>Star resume matcher on</span>
-
-					<svg
-						width="22"
-						height="22"
-						viewBox="0 -0.014 0.66 0.66"
-						fill="none"
-						xmlns="http://www.w3.org/2000/svg"
-					>
-						<path
-							fillRule="evenodd"
-							clipRule="evenodd"
-							d="M.336 0a.316.316 0 0 0-.1.616C.252.619.258.609.258.601V.547C.17.566.151.504.151.504A.1.1 0 0 0 .116.458C.087.439.118.439.118.439a.07.07 0 0 1 .048.033.07.07 0 0 0 .092.026.07.07 0 0 1 .019-.042C.207.448.133.421.133.301A.12.12 0 0 1 .165.216.12.12 0 0 1 .168.132S.195.123.255.164a.3.3 0 0 1 .158 0C.473.123.5.132.5.132a.1.1 0 0 1 .004.083A.12.12 0 0 1 .536.3c0 .122-.074.148-.144.155a.08.08 0 0 1 .022.058V.6c0 .01.006.018.022.015A.316.316 0 0 0 .336 0"
-							fill="currentColor"
-						/>
-					</svg>
+					<span className="font-medium">Visit EdgeTalent.ai</span>
 				</span>
 			</div>
 		</Link>
 	);
 };
 
-export default GitHubStarBadge;
+export default ContactBadge;

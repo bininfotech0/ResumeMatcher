@@ -1,15 +1,13 @@
 // File: apps/frontend/app/dashboard/page.tsx
 
-
 'use client';
 
 import React from 'react';
 import BackgroundContainer from '@/components/common/background-container';
 import JobListings from '@/components/dashboard/job-listings';
 import ResumeAnalysis from '@/components/dashboard/resume-analysis';
-import Resume from '@/components/dashboard/resume-component'; // rename import to match default export
+import Resume from '@/components/dashboard/resume-component';
 import { useResumePreview } from '@/components/common/resume_previewer_context';
-// import { analyzeJobDescription } from '@/lib/api/jobs';
 
 interface AnalyzedJobData {
 	title: string;
@@ -53,7 +51,6 @@ const mockResumeData = {
 			description:
 				'Studied mathematics and science extensively under tutors like Augustus De Morgan, a prominent mathematician.',
 		},
-		// Add more education objects here if needed
 	],
 	skills: [
 		'Algorithm Design',
@@ -73,7 +70,7 @@ export default function DashboardPage() {
 		return (
 			<BackgroundContainer className="min-h-screen" innerClassName="bg-zinc-950">
 				<div className="flex items-center justify-center h-full p-6 text-gray-400">
-					No improved resume found. Please click “Improve” on the Job Upload page first.
+					No improved resume found. Please click "Improve" on the Job Upload page first.
 				</div>
 			</BackgroundContainer>
 		);
@@ -85,22 +82,20 @@ export default function DashboardPage() {
 	const newPct = Math.round(new_score * 100);
 
 	const handleJobUpload = async (text: string): Promise<AnalyzedJobData | null> => {
-		void text; // Prevent unused variable warning
+		void text;
 		alert('Job analysis not implemented yet.');
 		return null;
 	};
 
-
 	return (
 		<BackgroundContainer className="min-h-screen" innerClassName="bg-zinc-950 backdrop-blur-sm overflow-auto">
 			<div className="w-full h-full overflow-auto py-8 px-4 sm:px-6 lg:px-8">
-				{/* Header */}
 				<div className="container mx-auto">
 					<div className="mb-10">
 						<h1 className="text-3xl font-semibold pb-2 text-white">
 							Your{' '}
-							<span className="bg-gradient-to-r from-pink-400 to-purple-400 text-transparent bg-clip-text">
-								Resume Matcher
+							<span className="bg-gradient-to-r from-blue-400 to-purple-500 text-transparent bg-clip-text">
+								EdgeTalent AI
 							</span>{' '}
 							Dashboard
 						</h1>
@@ -109,9 +104,7 @@ export default function DashboardPage() {
 						</p>
 					</div>
 
-					{/* Grid: left = analyzer + analysis, right = resume */}
 					<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-						{/* Left column */}
 						<div className="space-y-8">
 							<section>
 								<JobListings onUploadJob={handleJobUpload} />
@@ -126,7 +119,6 @@ export default function DashboardPage() {
 							</section>
 						</div>
 
-						{/* Right column */}
 						<div className="md:col-span-2">
 							<div className="bg-gray-900/70 backdrop-blur-sm p-6 rounded-lg shadow-xl h-full flex flex-col border border-gray-800/50">
 								<div className="mb-6">
