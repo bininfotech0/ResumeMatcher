@@ -68,7 +68,10 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
         api_key = api_key or settings.EMBEDDING_API_KEY or os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise ProviderError("OpenAI API key is missing")
-        self._client = OpenAI(api_key=api_key)
+        
+        # Configure base_url for Emergent API if provided
+        base_url = settings.EMBEDDING_BASE_URL if settings.EMBEDDING_BASE_URL else None
+        self._client = OpenAI(api_key=api_key, base_url=base_url)
         self._model = embedding_model
 
     async def embed(self, text: str) -> list[float]:
@@ -78,4 +81,5 @@ class OpenAIEmbeddingProvider(EmbeddingProvider):
             )
             return response.data[0].embedding
         except Exception as e:
+            logger.error(f"OpenAI embedding error: {str(e)}")
             raise ProviderError(f"OpenAI - error generating embedding: {e}") from e
