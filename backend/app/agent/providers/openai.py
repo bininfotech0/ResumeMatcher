@@ -20,21 +20,29 @@ class OpenAIProvider(Provider):
         api_key = api_key or settings.LLM_API_KEY or os.getenv("OPENAI_API_KEY")
         if not api_key:
             raise ProviderError("OpenAI API key is missing")
-        self._client = OpenAI(api_key=api_key)
+        
+        # Configure base_url for Emergent API if provided
+        base_url = settings.LLM_BASE_URL if settings.LLM_BASE_URL else None
+        self._client = OpenAI(api_key=api_key, base_url=base_url)
         self.model = model_name
         self.opts = opts
         self.instructions = ""
 
     def _generate_sync(self, prompt: str, options: Dict[str, Any]) -> str:
         try:
-            response = self._client.responses.create(
+            # Use chat completions API
+            messages = [{"role": "user", "content": prompt}]
+            if self.instructions:
+                messages.insert(0, {"role": "system", "content": self.instructions})
+            
+            response = self._client.chat.completions.create(
                 model=self.model,
-                instructions=self.instructions,
-                input=prompt,
+                messages=messages,
                 **options,
             )
-            return response.output_text
+            return response.choices[0].message.content
         except Exception as e:
+            logger.error(f"OpenAI API error: {str(e)}")
             raise ProviderError(f"OpenAI - error generating response: {e}") from e
 
     async def __call__(self, prompt: str, **generation_args: Any) -> str:
