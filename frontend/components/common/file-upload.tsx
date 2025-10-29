@@ -20,7 +20,16 @@ const acceptedFileTypes = [
 ];
 
 const acceptString = acceptedFileTypes.join(',');
-const API_RESUME_UPLOAD_URL = `${process.env.NEXT_PUBLIC_API_URL}/api/v1/resumes/upload`; // API endpoint
+
+// Construct API URL with fallback
+const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
+const API_RESUME_UPLOAD_URL = `${API_BASE_URL}/api/v1/resumes/upload`;
+
+// Debug logging
+if (typeof window !== 'undefined') {
+	console.log('API Base URL:', API_BASE_URL);
+	console.log('Upload URL:', API_RESUME_UPLOAD_URL);
+}
 
 export default function FileUpload() {
 	const maxSize = 2 * 1024 * 1024; // 2MB
