@@ -8,7 +8,7 @@ from .providers.base import Provider, EmbeddingProvider
 class AgentManager:
     def __init__(self,
                  strategy: str | None = None,
-                 model: str = settings.LL_MODEL,
+                 model: str = settings.LLM_MODEL,
                  model_provider: str = settings.LLM_PROVIDER
                  ) -> None:
         match strategy:
