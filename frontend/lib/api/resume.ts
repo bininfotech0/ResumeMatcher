@@ -1,6 +1,11 @@
 import { ImprovedResult } from '@/components/common/resume_previewer_context';
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL!;
+const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:8001';
+
+// Debug logging
+if (typeof window !== 'undefined') {
+	console.log('Resume API - API_URL:', API_URL);
+}
 
 /** Uploads job descriptions and returns a job_id */
 export async function uploadJobDescriptions(
