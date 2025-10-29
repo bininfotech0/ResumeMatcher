@@ -15,10 +15,10 @@ const geist = Geist({
 });
 
 export const metadata: Metadata = {
-  title: 'Resume Matcher',
-  description: 'Build your resume with Resume Matcher',
-  applicationName: 'Resume Matcher',
-  keywords: ['resume', 'matcher', 'job', 'application'],
+  title: 'EdgeTalent AI - AI-Powered Recruitment Platform',
+  description: 'Revolutionize your hiring process with EdgeTalent AI. Intelligent candidate matching, skill gap analysis, and comprehensive assessment tools powered by AI.',
+  applicationName: 'EdgeTalent AI',
+  keywords: ['recruitment', 'AI hiring', 'talent matching', 'resume screening', 'ATS', 'candidate assessment'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
